@@ -1,1 +1,7 @@
-[{"title":"Fufu with Peanut Soup","ingredients":"Yams or Cassava, Water, Peanut butter, Meat or Fish, Spices","instructions":"1. Boil and pound the yams until doughy.\n2. Prepare peanut soup with meat and spices.\n3. Serve fufu balls in the soup."},{"title":"Atakpamé (Ablo)","ingredients":"Corn flour, Rice flour, Sugar, Yeast, Water","instructions":"1. Mix flours with water, yeast, and sugar.\n2. Let ferment for several hours.\n3. Steam in small molds until fluffy."},{"title":"Jollof Rice","ingredients":"Rice, Tomatoes, Onions, Peppers, Spices, Oil","instructions":"1. Sauté onions and peppers.\n2. Add tomato paste and spices.\n3. Add rice and broth, then simmer until cooked."}]
+[{
+  "title":"Fufu with Peanut Soup",
+  "ingredients":"Yams or Cassava, Water, Peanut butter, Meat or Fish, Spices","instructions":"1. Boil and pound the yams until doughy.\n2. Prepare peanut soup with meat and spices.\n3. Serve fufu balls in the soup."},
+  {
+    "title":"Ablo",
+    "ingredients":"Corn flour, Rice flour, Sugar, Yeast, Water",
+    "instructions":"1. Mix flours with water, yeast, and sugar.\n2. Let ferment for several hours.\n3. Steam in small molds until fluffy."},{"title":"Jollof Rice","ingredients":"Rice, Tomatoes, Onions, Peppers, Spices, Oil","instructions":"1. Sauté onions and peppers.\n2. Add tomato paste and spices.\n3. Add rice and broth, then simmer until cooked."}]
