@@ -65,7 +65,7 @@ void main() async {
       message.reply('🍳 *${recipe.title}*\n\n'
           '🛒 *Le matos (Ingrédients) :*\n${recipe.ingredients}\n\n'
           '📖 *Le process (Instructions) :*\n${recipe.instructions}',
-          parse_mode: 'Markdown');
+          parseMode: 'Markdown');
     } else {
       message.reply('Désolé mon reuf, la recette "$title" est introuvable dans la db.');
     }
