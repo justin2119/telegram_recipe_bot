@@ -45,8 +45,8 @@ void main() async {
       title: parts[0],
       ingredients: parts[1],
       instructions: parts[2],
-      description: '',
-      preparationTime: '',
+      description: parts[3],
+      preparationTime:parts[4],
     );
 
     await repository.addRecipe(recipe);
