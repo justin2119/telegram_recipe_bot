@@ -1,8 +1,301 @@
-[{
-  "title":"Fufu with Peanut Soup",
-  "ingredients":"Yams or Cassava, Water, Peanut butter, Meat or Fish, Spices","instructions":"1. Boil and pound the yams until doughy.\n2. Prepare peanut soup with meat and spices.\n3. Serve fufu balls in the soup."},
+[
   {
-    "title":"Ablo",
-    "ingredients":"Corn flour, Rice flour, Sugar, Yeast, Water",
-    "instructions":"1. Mix flours with water, yeast, and sugar.\n2. Let ferment for several hours.\n3. Steam in small molds until fluffy."}
-,{"title":"Jollof Rice","ingredients":"Rice, Tomatoes, Onions, Peppers, Spices, Oil","instructions":"1. Sauté onions and peppers.\n2. Add tomato paste and spices.\n3. Add rice and broth, then simmer until cooked."}]
+    "title": "Fufu",
+    "description": "Le plat national emblématique du Togo, une pâte élastique à base d'igname pilonnée.",
+    "ingredients": "1kg d'igname (variété Laboco), Eau.",
+    "instructions": "1. Épluchez et lavez l'igname. 2. Faites bouillir jusqu'à tendreté. 3. Pilez vigoureusement jusqu'à obtenir une pâte lisse et élastique. 4. Servez avec une sauce graine ou arachide."
+  },
+  {
+    "title": "Ablo",
+    "description": "Petits pains de maïs blancs, légèrement sucrés et fermentés, cuits à la vapeur.",
+    "ingredients": "250g farine de maïs, 100g farine de riz, 50g sucre, 1 sachet de levure, eau tiède.",
+    "instructions": "1. Mélangez les farines, le sucre et la levure. 2. Ajoutez l'eau pour une pâte homogène. 3. Laissez fermenter 4h. 4. Cuisez à la vapeur 20 min dans des moules."
+  },
+  {
+    "title": "Riz au Gras (Jollof Togolais)",
+    "description": "Riz savoureux cuit dans une sauce tomate épicée avec de la viande.",
+    "ingredients": "500g riz, 500g poulet, 3 tomates mixées, 2 oignons, ail, gingembre, huile, cube bouillon.",
+    "instructions": "1. Dorez le poulet, puis réservez. 2. Faites la sauce avec oignons, tomate et épices. 3. Ajoutez l'eau et le riz. 4. Laissez mijoter jusqu'à absorption."
+  },
+  {
+    "title": "Akpan",
+    "description": "Yogourt végétal à base de maïs fermenté, consommé très frais.",
+    "ingredients": "500g pâte de maïs fermentée, Eau, Sucre, Lait concentré, Glaçons.",
+    "instructions": "1. Délayez la pâte dans l'eau. 2. Cuisez en remuant jusqu'à épaississement. 3. Laissez refroidir. 4. Servez avec lait, sucre et glaçons."
+  },
+  {
+    "title": "Djenkoumé",
+    "description": "Pâte rouge traditionnelle faite à base de farine de maïs grillée et de tomate.",
+    "ingredients": "300g farine de maïs rouge, 1L bouillon de poulet, sauce tomate, oignons, huile.",
+    "instructions": "1. Préparez une base de sauce tomate dans le bouillon. 2. Versez la farine en pluie. 3. Remuez énergiquement jusqu'à obtention d'une pâte consistante."
+  },
+  {
+    "title": "Ayimolou",
+    "description": "Mélange riz et haricots typique, souvent servi avec du piment noir (Wagassi).",
+    "ingredients": "300g riz, 200g haricots noirs, potasse, sel, eau.",
+    "instructions": "1. Cuisez les haricots avec un peu de potasse. 2. Ajoutez le riz quand ils sont tendres. 3. Cuisez le tout jusqu'à ce que le mélange soit bien lié."
+  },
+  {
+    "title": "Gboma Dessi",
+    "description": "Sauce riche aux épinards (Gboma) agrémentée de viande ou de poisson fumé.",
+    "ingredients": "500g épinards, 300g viande, tomates, oignons, poisson fumé, huile de palme.",
+    "instructions": "1. Blanchissez les épinards. 2. Faites revenir la viande et le poisson dans l'huile de palme avec oignon/tomate. 3. Ajoutez les épinards et laissez mijoter."
+  },
+  {
+    "title": "Sauce Graine",
+    "description": "Sauce onctueuse faite à partir de la pulpe de noix de palme.",
+    "ingredients": "500g pulpe de noix de palme, 400g viande de boeuf, crabes, oignons, piment.",
+    "instructions": "1. Extraire le jus des noix de palme. 2. Portez à ébullition avec la viande et les crabes. 3. Laissez réduire jusqu'à épaississement de la sauce."
+  },
+  {
+    "title": "Adémè Dessi",
+    "description": "Sauce gluante à base de feuilles de Corète potagère.",
+    "ingredients": "300g feuilles d'Adémè, poisson séché, crevettes, ail, oignon, potasse.",
+    "instructions": "1. Hachez les feuilles. 2. Cuisez-les avec une pincée de potasse. 3. Ajoutez le poisson et les épices. 4. Servez avec du Akassa."
+  },
+  {
+    "title": "Akassa",
+    "description": "Pâte de maïs fermentée, cuite et emballée dans des feuilles de bananier.",
+    "ingredients": "Farine de maïs fermentée, Eau.",
+    "instructions": "1. Mélangez la farine et l'eau. 2. Cuisez en remuant jusqu'à consistance ferme. 3. Emballez dans des feuilles de bananier ou moules."
+  },
+  {
+    "title": "Attiéké",
+    "description": "Semoule de manioc fermentée, spécialité d'Afrique de l'Ouest.",
+    "ingredients": "500g Attiéké sec ou frais, Poisson frit, Tomates, Oignons, Piment.",
+    "instructions": "1. Réhydratez l'attiéké à la vapeur. 2. Égrenez-le à la fourchette. 3. Servez avec le poisson et une salade d'oignons/tomates fraîche."
+  },
+  {
+    "title": "Alloco",
+    "description": "Frites de bananes plantains mûres, incontournables des rues de Lomé.",
+    "ingredients": "4 Bananes plantains très mûres, Huile de friture, Sel.",
+    "instructions": "1. Épluchez et coupez les bananes en dés ou tranches. 2. Faites frire dans l'huile chaude jusqu'à dorure. 3. Égouttez et salez."
+  },
+  {
+    "title": "Wagassi Frit",
+    "description": "Fromage peul traditionnel frit, souvent servi avec une sauce tomate.",
+    "ingredients": "2 boules de Wagassi, Huile, Tomate concentrée, Oignon, Piment.",
+    "instructions": "1. Coupez le fromage en tranches. 2. Faites-le dorer à la poêle. 3. Accompagnez d'une petite sauce tomate pimentée."
+  },
+  {
+    "title": "Kom",
+    "description": "Pâte de maïs fermentée cuite à la vapeur, originaire du Ghana mais très prisée au Togo.",
+    "ingredients": "Pâte de maïs fermentée, Sel, Eau.",
+    "instructions": "1. Formez des boules avec la pâte fermentée salée. 2. Emballez dans des spathes de maïs. 3. Cuisez à la vapeur pendant 45 minutes."
+  },
+  {
+    "title": "Sauce Arachide",
+    "description": "Sauce crémeuse à base de pâte d'arachide, servie avec du riz ou du fufu.",
+    "ingredients": "200g pâte d'arachide, Poulet, Tomates, Oignons, Légumes (carottes/choux).",
+    "instructions": "1. Faites dorer le poulet. 2. Diluez la pâte d'arachide dans l'eau. 3. Versez sur la viande avec les légumes et laissez mijoter."
+  },
+  {
+    "title": "Poulet DG",
+    "description": "Ragoût de poulet aux plantains et légumes, un délice camerounais adopté au Togo.",
+    "ingredients": "1 Poulet, 3 Plantains, Haricots verts, Carottes, Poivrons, Huile.",
+    "instructions": "1. Frire les plantains. 2. Cuire le poulet avec légumes et aromates. 3. Mélanger le tout en fin de cuisson."
+  },
+  {
+    "title": "Mafé",
+    "description": "Variante sénégalaise de la sauce arachide avec plus de légumes racines.",
+    "ingredients": "Viande de boeuf, Pâte d'arachide, Patates douces, Carottes, Tomates.",
+    "instructions": "1. Mijoter la viande. 2. Ajouter la pâte d'arachide diluée. 3. Incorporer les légumes et cuire à feu doux."
+  },
+  {
+    "title": "Garba",
+    "description": "Plat de rue iconique : Attiéké avec du thon frit et beaucoup de piment.",
+    "ingredients": "Attiéké, Thon frais, Farine, Huile, Oignons, Piment vert.",
+    "instructions": "1. Farinez et frire le thon. 2. Préparez l'attiéké. 3. Mélangez avec oignons hachés et cubes bouillon."
+  },
+  {
+    "title": "Kedjenou",
+    "description": "Ragoût de poulet cuit à l'étouffée, sans ajout d'eau, dans son jus.",
+    "ingredients": "Poulet, Tomates, Oignons, Aubergines, Piment, Laurier.",
+    "instructions": "1. Mettre tous les ingrédients dans un canari ou cocotte. 2. Fermer hermétiquement. 3. Secouer régulièrement pendant la cuisson."
+  },
+  {
+    "title": "Soupe au Poisson",
+    "description": "Soupe légère et épicée au poisson frais, parfaite pour le soir.",
+    "ingredients": "Poisson frais (Carpe/Thon), Gingembre, Citronnelle, Piment, Oignons.",
+    "instructions": "1. Bouillir l'eau avec les aromates. 2. Ajouter les morceaux de poisson. 3. Cuire 10-15 min pour garder le poisson ferme."
+  },
+  {
+    "title": "Klouikloui",
+    "description": "Croquettes d'arachide croustillantes, spécialité du Bénin et Togo.",
+    "ingredients": "Pâte d'arachide déshuilée, Piment, Sel, Huile pour friture.",
+    "instructions": "1. Assaisonner la pâte d'arachide. 2. Façonner en bâtonnets ou anneaux. 3. Frire jusqu'à ce que ce soit très croquant."
+  },
+  {
+    "title": "Pastels",
+    "description": "Petits chaussons frits fourrés au poisson ou à la viande.",
+    "ingredients": "Pâte brisée, Thon, Oignons, Tomate, Épices, Huile.",
+    "instructions": "1. Faire une farce avec thon/oignons. 2. Découper des ronds de pâte. 3. Garnir, fermer et frire."
+  },
+  {
+    "title": "Yassa au Poulet",
+    "description": "Poulet mariné au citron et beaucoup d'oignons.",
+    "ingredients": "Poulet, 1kg oignons, Citrons vert, Moutarde, Ail, Olives.",
+    "instructions": "1. Mariner le poulet (citron/oignons) 12h. 2. Griller le poulet. 3. Faire confire les oignons dans la marinade."
+  },
+  {
+    "title": "Poisson Braisé",
+    "description": "Poisson entier grillé au charbon de bois, servi avec piment et oignons.",
+    "ingredients": "Gros poisson (Tilapia), Ail, Gingembre, Huile, Sel, Citron.",
+    "instructions": "1. Inciser le poisson et le mariner. 2. Griller doucement au charbon. 3. Badigeonner d'huile parfumée pendant la cuisson."
+  },
+  {
+    "title": "Kelewele",
+    "description": "Dés de plantains frits très épicés au gingembre et piment.",
+    "ingredients": "3 Plantains mûres, Gingembre frais, Piment, Sel, Huile.",
+    "instructions": "1. Mixer le gingembre et le piment. 2. Enrober les dés de banane. 3. Frire jusqu'à caramélisation."
+  },
+  {
+    "title": "Salade de Papaye Verte",
+    "description": "Salade croquante et rafraîchissante.",
+    "ingredients": "Papaye verte, Carottes, Citron, Huile, Arachides grillées.",
+    "instructions": "1. Râper la papaye et les carottes. 2. Faire une vinaigrette citronnée. 3. Parsemer d'arachides concassées."
+  },
+  {
+    "title": "Akpala",
+    "description": "Beignets de haricots (Niébé) frits, très populaires au petit-déjeuner.",
+    "ingredients": "Haricots blancs, Oignon, Piment, Sel, Huile.",
+    "instructions": "1. Tremper et peler les haricots. 2. Mixer en pâte fine avec oignon. 3. Battre la pâte pour l'aérer et frire en boules."
+  },
+  {
+    "title": "Sauce Kopé",
+    "description": "Sauce gluante aux gombos frais, servie avec du riz ou de la pâte.",
+    "ingredients": "Gombos frais, Crabe, Poisson fumé, Viande, Huile de palme.",
+    "instructions": "1. Émincer finement les gombos. 2. Cuire dans un bouillon avec viande/poisson. 3. Ajouter l'huile de palme à la fin."
+  },
+  {
+    "title": "Egusi Soup",
+    "description": "Sauce aux graines de courge mixées et feuilles de légumes.",
+    "ingredients": "Graines de courge mixées, Viande, Poisson, Épinards, Huile de palme.",
+    "instructions": "1. Faire une sauce tomate à l'huile de palme. 2. Ajouter la pâte d'Egusi. 3. Incorporer les feuilles et la viande."
+  },
+  {
+    "title": "Ndole",
+    "description": "Plat camerounais à base de feuilles amères, arachides et crevettes.",
+    "ingredients": "Feuilles de Ndole, Pâte d'arachide fraîche, Crevettes, Viande, Oignons.",
+    "instructions": "1. Laver les feuilles pour enlever l'amertume. 2. Cuire avec l'arachide. 3. Faire un topping d'oignons et crevettes frits."
+  },
+  {
+    "title": "Couscous de Fonio",
+    "description": "Céréale ancestrale sans gluten cuite à la vapeur.",
+    "ingredients": "500g Fonio, Eau, Sel, Beurre ou Huile.",
+    "instructions": "1. Laver soigneusement le fonio. 2. Cuire à la vapeur deux fois. 3. Égrener avec un peu de beurre."
+  },
+  {
+    "title": "Thiéboudienne",
+    "description": "Le riz au poisson mythique du Sénégal.",
+    "ingredients": "Riz, Poisson (Mérou), Gombo, Carotte, Manioc, Aubergine, Tomate.",
+    "instructions": "1. Farcir le poisson d'un hachis d'herbes. 2. Faire la sauce rouge. 3. Cuire les légumes, puis le riz dans le bouillon."
+  },
+  {
+    "title": "Bouillie de Mil",
+    "description": "Petit-déjeuner chaud et réconfortant.",
+    "ingredients": "Farine de mil, Eau, Citron, Sucre, Lait.",
+    "instructions": "1. Faire bouillir l'eau. 2. Verser la farine délayée. 3. Cuire jusqu'à onctuosité. 4. Ajouter le reste selon les goûts."
+  },
+  {
+    "title": "Boudin Togolais",
+    "description": "Charcuterie traditionnelle aux épices locales.",
+    "ingredients": "Sang de porc, Gras, Oignons, Piment, Épices locales, Boyau.",
+    "instructions": "1. Mélanger les ingrédients. 2. Entonner dans les boyaux. 3. Pocher dans l'eau frémissante."
+  },
+  {
+    "title": "Sodabi Arrangé",
+    "description": "Liqueur de palme infusée aux racines et fruits.",
+    "ingredients": "1L Sodabi, Racines, Écorces, Fruits secs, Miel.",
+    "instructions": "1. Mettre les ingrédients dans une bouteille. 2. Laisser macérer au moins 15 jours. 3. Consommer avec modération."
+  },
+  {
+    "title": "Brochettes de Boeuf (Suya)",
+    "description": "Viande grillée enrobée de poudre d'arachide épicée.",
+    "ingredients": "Viande de boeuf, Poudre d'arachide, Gingembre, Piment, Huile.",
+    "instructions": "1. Trancher la viande finement. 2. Enrober du mélange d'épices. 3. Griller rapidement au feu de bois."
+  },
+  {
+    "title": "Omelette au Spaghetti",
+    "description": "Plat de rue rapide et consistant.",
+    "ingredients": "2 Oeufs, Spaghetti cuits, Oignon, Tomate, Cube bouillon.",
+    "instructions": "1. Battre les oeufs avec les légumes. 2. Mélanger aux spaghettis. 3. Frire comme une grosse crêpe."
+  },
+  {
+    "title": "Abolo de Manioc",
+    "description": "Variante de l'Ablo à base de manioc fermenté.",
+    "ingredients": "Pâte de manioc, Farine de maïs, Sucre, Sel.",
+    "instructions": "1. Mélanger les deux pâtes. 2. Laisser lever. 3. Cuire à la vapeur."
+  },
+  {
+    "title": "Sauce Feuille de Patate",
+    "description": "Sauce verte nourrissante aux feuilles de patate douce.",
+    "ingredients": "Feuilles de patate, Poisson fumé, Huile de palme, Piment.",
+    "instructions": "1. Hacher les feuilles. 2. Cuire avec le poisson et l'huile. 3. Laisser réduire l'eau."
+  },
+  {
+    "title": "Placali",
+    "description": "Pâte de manioc fermentée, texture gluante, servie avec sauce graine.",
+    "ingredients": "Pâte de manioc fermentée, Eau.",
+    "instructions": "1. Délayer la pâte dans l'eau. 2. Filtrer. 3. Cuire en remuant vigoureusement."
+  },
+  {
+    "title": "Calou Dessi",
+    "description": "Sauce gombo à l'huile de palme très riche.",
+    "ingredients": "Gombos, Viande, Crevettes, Huile de palme, Sel gemme.",
+    "instructions": "1. Bouillir la viande. 2. Ajouter les gombos mixés. 3. Incorporer l'huile de palme et le sel gemme."
+  },
+  {
+    "title": "Gali Foto",
+    "description": "Gari (semoule de manioc) sauté avec oeufs et légumes.",
+    "ingredients": "Gari, Oeufs, Tomates, Oignons, Huile, Piment.",
+    "instructions": "1. Faire une sauce tomate/oignon. 2. Casser les oeufs dedans. 3. Ajouter le gari sec et bien mélanger."
+  },
+  {
+    "title": "Kanklo",
+    "description": "Beignets de bananes très mûres et farine de maïs.",
+    "ingredients": "Bananes mûres, Farine de maïs, Sel, Huile.",
+    "instructions": "1. Écraser les bananes. 2. Incorporer la farine. 3. Frire en petites boules."
+  },
+  {
+    "title": "Sauce Tomate au Poisson Frit",
+    "description": "Le plat familial de base, simple et efficace.",
+    "ingredients": "Poisson frit, Tomates, Oignons, Ail, Huile, Piment.",
+    "instructions": "1. Faire une sauce tomate épaisse. 2. Plonger le poisson frit dedans. 3. Servir avec du riz blanc."
+  },
+  {
+    "title": "Fritures d'Igname",
+    "description": "Bâtonnets d'igname frits, croustillants dehors, fondants dedans.",
+    "ingredients": "Igname, Sel, Huile de friture.",
+    "instructions": "1. Couper l'igname comme des frites. 2. Blanchir 5 min dans l'eau salée. 3. Frire à l'huile chaude."
+  },
+  {
+    "title": "Tchapalo",
+    "description": "Bière traditionnelle de mil non alcoolisée ou peu alcoolisée.",
+    "ingredients": "Grains de mil, Eau, Levure traditionnelle.",
+    "instructions": "1. Faire germer le mil. 2. Sécher et moudre. 3. Bouillir longtemps et filtrer."
+  },
+  {
+    "title": "Bofloto",
+    "description": "Beignets sucrés africains, ronds et dorés.",
+    "ingredients": "500g farine, 100g sucre, levure, eau, muscade.",
+    "instructions": "1. Faire la pâte et laisser lever 2h. 2. Former des boules à la main. 3. Frire à l'huile moyenne."
+  },
+  {
+    "title": "Zom Dessi",
+    "description": "Sauce aux épinards locaux et farine de maïs grillée.",
+    "ingredients": "Feuilles de Zom, Farine de maïs grillée, Viande, Huile.",
+    "instructions": "1. Cuire les feuilles. 2. Ajouter la viande. 3. Épaissir avec la farine de maïs à la fin."
+  },
+  {
+    "title": "Akoumé",
+    "description": "Pâte de maïs simple, l'accompagnement de base de nombreuses sauces.",
+    "ingredients": "Farine de maïs, Eau.",
+    "instructions": "1. Chauffer l'eau. 2. Verser la farine en remuant. 3. Cuire jusqu'à consistance ferme et homogène."
+  },
+  {
+    "title": "Jus de Bissap",
+    "description": "Infusion de fleurs d'hibiscus, sucrée et parfumée.",
+    "ingredients": "Fleurs d'hibiscus séchées, Sucre, Menthe, Vanille, Eau.",
+    "instructions": "1. Bouillir l'eau avec les fleurs. 2. Laisser infuser et filtrer. 3. Sucrer et aromatiser, puis mettre au frais."
+  }
