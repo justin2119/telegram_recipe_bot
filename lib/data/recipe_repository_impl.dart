@@ -8,19 +8,29 @@ class RecipeRepositoryImpl implements RecipeRepository {
 
   final List<RecipeModel> _defaultRecipes = [
     RecipeModel(
-      title: 'Fufu with Peanut Soup',
-      ingredients: 'Yams or Cassava, Water, Peanut butter, Meat or Fish, Spices',
-      instructions: '1. Boil and pound the yams until doughy.\n2. Prepare peanut soup with meat and spices.\n3. Serve fufu balls in the soup.',
+      title: 'Fufu',
+      ingredients: 'Igname (ou manioc), Eau',
+      instructions: '1. Faire bouillir l\'igname.\n2. Piler l\'igname jusqu\'à obtenir une pâte élastique et homogène.\n3. Servir chaud avec une sauce (graine ou arachide).',
     ),
     RecipeModel(
-      title: 'Atakpamé (Ablo)',
-      ingredients: 'Corn flour, Rice flour, Sugar, Yeast, Water',
-      instructions: '1. Mix flours with water, yeast, and sugar.\n2. Let ferment for several hours.\n3. Steam in small molds until fluffy.',
+      title: 'Ablo',
+      ingredients: 'Farine de maïs, Farine de riz, Sucre, Levure, Eau',
+      instructions: '1. Mélanger les farines avec l\'eau, la levure et le sucre.\n2. Laisser fermenter pendant quelques heures.\n3. Cuire à la vapeur dans des petits moules jusqu\'à ce que ce soit bien moelleux.',
     ),
     RecipeModel(
-      title: 'Jollof Rice',
-      ingredients: 'Rice, Tomatoes, Onions, Peppers, Spices, Oil',
-      instructions: '1. Sauté onions and peppers.\n2. Add tomato paste and spices.\n3. Add rice and broth, then simmer until cooked.',
+      title: 'Riz au Gras / Jollof Togolais',
+      ingredients: 'Riz, Tomates, Oignons, Poivrons, Viande ou Poisson, Huile, Épices',
+      instructions: '1. Faire revenir la viande et les oignons.\n2. Ajouter la tomate concentrée et les légumes mixés.\n3. Ajouter le riz et le bouillon, puis laisser cuire à feu doux jusqu\'à absorption totale.',
+    ),
+    RecipeModel(
+      title: 'Akpan',
+      ingredients: 'Farine de maïs fermentée, Eau, Lait (optionnel), Sucre',
+      instructions: '1. Délayer la pâte de maïs fermentée dans de l\'eau.\n2. Cuire à feu moyen en remuant constamment jusqu\'à épaississement.\n3. Laisser refroidir et servir avec du lait et du sucre.',
+    ),
+    RecipeModel(
+      title: 'Djenkoumé',
+      ingredients: 'Farine de maïs rouge (grillée), Tomates, Oignons, Huile, Bouillon de poulet',
+      instructions: '1. Préparer une sauce tomate bien assaisonnée.\n2. Ajouter le bouillon de poulet.\n3. Verser la farine de maïs en pluie tout en remuant vigoureusement jusqu\'à obtenir une pâte consistante.',
     ),
   ];
 
@@ -49,7 +59,6 @@ class RecipeRepositoryImpl implements RecipeRepository {
       final List<dynamic> jsonList = jsonDecode(jsonString);
       return jsonList.map((e) => RecipeModel.fromJson(e)).toList();
     } catch (e) {
-      // If file is corrupted, fallback to defaults
       await _saveToFile(_defaultRecipes);
       return _defaultRecipes;
     }
