@@ -25,26 +25,28 @@ void main() async {
     teledart.sendChatAction(message.chat.id, 'typing');
     message.reply('Bienvenue sur le Recipe Bot, c\'est carré ! 👨‍🍳\n\n'
         'Les bails dispos :\n'
-        '/addrecipe <titre> | <ingrédients> | <instructions> — Pour push une nouvelle recette\n'
+        '/addrecipe <titre> | <description> | <temps> | <ingrédients> | <instructions> — Pour push une nouvelle recette\n'
         '/recipe <titre> — Pour check une recette spécifique\n'
         '/listrecipes — Pour voir tout le catalogue');
   });
 
-  // /addrecipe <title> | <ingredients> | <instructions>
+  // /addrecipe <title> | <description> | <preparationTime> | <ingredients> | <instructions>
   teledart.onCommand('addrecipe').listen((message) async {
     teledart.sendChatAction(message.chat.id, 'typing');
     final text = message.text?.replaceFirst('/addrecipe', '').trim() ?? '';
     final parts = text.split('|').map((e) => e.trim()).toList();
 
-    if (parts.length < 3) {
-      message.reply('Mauvais format mon reuf. Utilise : /addrecipe Titre | Ingrédients | Instructions');
+    if (parts.length < 5) {
+      message.reply('Mauvais format mon reuf. Utilise : /addrecipe Titre | Description | Temps | Ingrédients | Instructions');
       return;
     }
 
     final recipe = Recipe(
       title: parts[0],
-      ingredients: parts[1],
-      instructions: parts[2],
+      description: parts[1],
+      preparationTime: parts[2],
+      ingredients: parts[3],
+      instructions: parts[4],
     );
 
     await repository.addRecipe(recipe);
@@ -63,9 +65,11 @@ void main() async {
     final recipe = await repository.getRecipeByTitle(title);
     if (recipe != null) {
       message.reply('🍳 *${recipe.title}*\n\n'
+          '📝 *Description :*\n${recipe.description}\n\n'
+          '⏳ *Durée de préparation :*\n${recipe.preparationTime}\n\n'
           '🛒 *Le matos (Ingrédients) :*\n${recipe.ingredients}\n\n'
           '📖 *Le process (Instructions) :*\n${recipe.instructions}',
-          parseMode: 'Markdown');
+          parse_mode: 'Markdown');
     } else {
       message.reply('Désolé mon reuf, la recette "$title" est introuvable dans la db.');
     }
