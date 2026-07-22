@@ -7,12 +7,24 @@ import '../domain/recipe.dart';
 
 void main() async {
   var env = DotEnv()..load();
-  final String botToken = env['TELEGRAM_BOT_TOKEN'] ?? '';
+  final String botToken = env['TELEGRAM_BOT_TOKEN'] ?? Platform.environment['TELEGRAM_BOT_TOKEN'] ?? '';
 
   if (botToken.isEmpty) {
-    print('Erreur : TELEGRAM_BOT_TOKEN manquant dans le .env mon reuf');
+    print('Erreur : TELEGRAM_BOT_TOKEN manquant dans le .env ou en env var mon reuf');
     exit(1);
   }
+
+  // Start a lightweight HTTP server to pass Hugging Face Spaces health check on port 7860
+  final int port = int.tryParse(Platform.environment['PORT'] ?? '7860') ?? 7860;
+  HttpServer.bind(InternetAddress.anyIPv4, port).then((server) {
+    print('Serveur de santé on-line sur le port $port, c\'est carré !');
+    server.listen((HttpRequest request) {
+      request.response
+        ..statusCode = HttpStatus.ok
+        ..write('Recipe Bot is running! 👨‍🍳')
+        ..close();
+    });
+  });
 
   final username = (await Telegram(botToken).getMe()).username;
   var teledart = TeleDart(botToken, Event(username!));
@@ -64,7 +76,6 @@ void main() async {
 
     final recipe = await repository.getRecipeByTitle(title);
     if (recipe != null) {
-      // Clean up ingredients and instructions to ensure they are properly formatted with newlines or bullets if they aren't already.
       final formattedIngredients = recipe.ingredients.replaceAll(', ', '\n• ').replaceAll('; ', '\n• ');
       final ingredientsSection = formattedIngredients.startsWith('• ') ? formattedIngredients : '• $formattedIngredients';
 
@@ -74,12 +85,11 @@ void main() async {
           '🛒 *Le matos (Ingrédients) :*\n$ingredientsSection\n\n'
           '📖 *Le process (Instructions) :*\n${recipe.instructions}';
 
-      // Telegram messages have a 4096 character limit. If the recipe is somehow longer, we split it.
       if (response.length > 4000) {
           final firstPart = response.substring(0, 4000);
           final secondPart = response.substring(4000);
-          await message.reply(firstPart, parseMode: 'Markdown');
-          await message.reply(secondPart, parseMode: 'Markdown');
+          await message.reply(firstPart, parse_mode: 'Markdown');
+          await message.reply(secondPart, parse_mode: 'Markdown');
       } else {
           message.reply(response, parseMode: 'Markdown');
       }
