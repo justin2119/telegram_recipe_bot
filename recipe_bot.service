@@ -1,0 +1,14 @@
+[Unit]
+Description=Telegram Recipe Bot Service - C'est Carré
+After=network.target
+
+[Service]
+# Mets le bon user et le bon path mon reuf
+User=root
+WorkingDirectory=/root/telegram_recipe_bot
+ExecStart=/root/telegram_recipe_bot/recipe_bot
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

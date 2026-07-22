@@ -13,7 +13,7 @@ C'est un bot Telegram build avec **Dart** et **TeleDart**. Il gère une base de 
 - **Persistence :** Local JSON storage
 - **Config :** Dotenv pour les secrets
 
-## ⚙️ Setup (Le déploiement en prod)
+## ⚙️ Setup (Installation rapide)
 
 Pour faire tourner le bouzin sur ta bécane, suis le process :
 
@@ -34,35 +34,56 @@ Pour faire tourner le bouzin sur ta bécane, suis le process :
     TELEGRAM_BOT_TOKEN=ton_token_ici
     ```
 
-4.  **Run le bot :**
+4.  **Run le bot (mode dev) :**
     ```bash
     dart run lib/presentation/main.dart
     ```
 
-Si tu vois "Le Recipe Bot est on-line, prêt à charbonner...", c'est que c'est carré !
+## 🌍 Déploiement 24/7 (Mode Charbonneur)
+
+Si tu veux que ton bot tourne non-stop sur ton VPS sans crash, on a ce qu'il faut.
+
+### Option A : Docker (Le bail le plus propre)
+
+1.  **Build l'image :**
+    ```bash
+    docker build -t recipe-bot .
+    ```
+
+2.  **Lance le container :**
+    ```bash
+    docker run -d --restart always --name my-recipe-bot --env-file .env recipe-bot
+    ```
+
+### Option B : Systemd (Direct sur ton Linux)
+
+1.  **Build l'exécutable :**
+    ```bash
+    dart compile exe lib/presentation/main.dart -o recipe_bot
+    ```
+
+2.  **Config le service :**
+    Copie le fichier `recipe_bot.service` dans `/etc/systemd/system/`.
+    ```bash
+    sudo cp recipe_bot.service /etc/systemd/system/
+    sudo systemctl daemon-reload
+    sudo systemctl enable recipe_bot
+    sudo systemctl start recipe_bot
+    ```
 
 ## 🕹 Les Commandes (Les bails dispos)
 
 - `/start` : Le bot te fait un check et te montre les bails.
 - `/listrecipes` : Affiche tout le catalogue des recettes en DB.
-- `/recipe <titre>` : Te sort "Le matos" (ingrédients) et "Le process" (instructions) détaillés d'une recette.
-- `/addrecipe <titre> | <matos> | <process>` : Pour push tes propres bails dans la base. Attention à bien utiliser le pipe `|` pour séparer les infos.
+- `/recipe <titre>` : Te sort la description, le temps, "Le matos" et "Le process" d'une recette.
+- `/addrecipe <titre> | <desc> | <temps> | <matos> | <process>` : Pour push tes propres bails.
 
 ## 🇹🇬 Le Catalogue Togolais (Default Pack)
 
-On t'a mis bien avec 5 recettes authentiques déjà intégrées :
+On t'a mis bien avec 50 recettes authentiques déjà intégrées, dont :
 - **Fufu** : L'incontournable igname pilonnée.
-- **Ablo** : Les petits pains de maïs vapeur, super moelleux.
-- **Riz au Gras / Jollof Togolais** : Le riz rouge qui met tout le monde d'accord.
-- **Akpan** : Le dessert glacé à base de maïs fermenté, frais de ouf.
-- **Djenkoumé** : La pâte rouge à la tomate et au bouillon de poulet.
-
-## 🧱 Architecture
-
-Le projet est découpé proprement pour pas que ce soit le zbeul :
-- `lib/core/` : Les erreurs et les helpers.
-- `lib/domain/` : Les entités et les contrats des repos.
-- `lib/data/` : L'implémentation des repos et les modèles JSON.
-- `lib/presentation/` : Le point d'entrée du bot et la logique des commandes.
+- **Ablo** : Les petits pains de maïs vapeur.
+- **Djenkoumé** : La pâte rouge à la tomate.
+- *Et 47 autres bails de qualité.*
 
 C'est propre, c'est carré, bon appétit mon reuf ! ✌️
