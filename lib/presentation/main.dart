@@ -62,7 +62,7 @@ void main() async {
       message.reply('🍳 *${recipe.title}*\n\n'
           '🛒 *Ingredients:*\n${recipe.ingredients}\n\n'
           '📖 *Instructions:*\n${recipe.instructions}',
-          parse_mode: 'Markdown');
+          parseMode: 'Markdown');
     } else {
       message.reply('Recipe "$title" not found.');
     }
