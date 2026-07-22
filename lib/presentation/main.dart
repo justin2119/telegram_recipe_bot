@@ -25,28 +25,28 @@ void main() async {
     teledart.sendChatAction(message.chat.id, 'typing');
     message.reply('Bienvenue sur le Recipe Bot, c\'est carré ! 👨‍🍳\n\n'
         'Les bails dispos :\n'
-        '/addrecipe <titre> | <ingrédients> | <instructions> — Pour push une nouvelle recette\n'
+        '/addrecipe <titre> | <description> | <durée> | <ingrédients> | <instructions> — Pour push une nouvelle recette\n'
         '/recipe <titre> — Pour check une recette spécifique\n'
         '/listrecipes — Pour voir tout le catalogue');
   });
 
-  // /addrecipe <title> | <ingredients> | <instructions>
+  // /addrecipe <title> | <description> | <preparationTime> | <ingredients> | <instructions>
   teledart.onCommand('addrecipe').listen((message) async {
     teledart.sendChatAction(message.chat.id, 'typing');
     final text = message.text?.replaceFirst('/addrecipe', '').trim() ?? '';
     final parts = text.split('|').map((e) => e.trim()).toList();
 
-    if (parts.length < 3) {
-      message.reply('Mauvais format mon reuf. Utilise : /addrecipe Titre | Ingrédients | Instructions');
+    if (parts.length < 5) {
+      message.reply('Mauvais format mon reuf. Utilise : /addrecipe Titre | Description | Durée | Ingrédients | Instructions');
       return;
     }
 
     final recipe = Recipe(
       title: parts[0],
-      ingredients: parts[1],
-      instructions: parts[2],
-      description: parts[3],
-      preparationTime:parts[4],
+      description: parts[1],
+      preparationTime: parts[2],
+      ingredients: parts[3],
+      instructions: parts[4],
     );
 
     await repository.addRecipe(recipe);
@@ -64,10 +64,25 @@ void main() async {
 
     final recipe = await repository.getRecipeByTitle(title);
     if (recipe != null) {
-      message.reply('🍳 *${recipe.title}*\n\n'
-          '🛒 *Le matos (Ingrédients) :*\n${recipe.ingredients}\n\n'
-          '📖 *Le process (Instructions) :*\n${recipe.instructions}',
-          parseMode: 'Markdown');
+      // Clean up ingredients and instructions to ensure they are properly formatted with newlines or bullets if they aren't already.
+      final formattedIngredients = recipe.ingredients.replaceAll(', ', '\n• ').replaceAll('; ', '\n• ');
+      final ingredientsSection = formattedIngredients.startsWith('• ') ? formattedIngredients : '• $formattedIngredients';
+
+      final response = '🍳 *${recipe.title}*\n\n'
+          '📝 *Description :*\n${recipe.description}\n\n'
+          '⏳ *Durée de préparation :*\n${recipe.preparationTime}\n\n'
+          '🛒 *Le matos (Ingrédients) :*\n$ingredientsSection\n\n'
+          '📖 *Le process (Instructions) :*\n${recipe.instructions}';
+
+      // Telegram messages have a 4096 character limit. If the recipe is somehow longer, we split it.
+      if (response.length > 4000) {
+          final firstPart = response.substring(0, 4000);
+          final secondPart = response.substring(4000);
+          await message.reply(firstPart, parse_mode: 'Markdown');
+          await message.reply(secondPart, parse_mode: 'Markdown');
+      } else {
+          message.reply(response, parse_mode: 'Markdown');
+      }
     } else {
       message.reply('Désolé mon reuf, la recette "$title" est introuvable dans la db.');
     }
