@@ -25,7 +25,7 @@ void main() async {
     message.reply('Bienvenue sur le Recipe Bot, c\'est carré ! 👨‍🍳\n\n'
         'Les bails dispos :\n'
         '/addrecipe <titre> | <ingrédients> | <instructions> — Pour push une nouvelle recette\n'
-        '/recipe <titre> — Pour check une recette spécifique\n'
+        '/recipe <titre> — Pour voir une recette spécifique\n'
         '/listrecipes — Pour voir tout le catalogue');
   });
 
