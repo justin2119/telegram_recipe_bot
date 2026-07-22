@@ -78,10 +78,10 @@ void main() async {
       if (response.length > 4000) {
           final firstPart = response.substring(0, 4000);
           final secondPart = response.substring(4000);
-          await message.reply(firstPart, parse_mode: 'Markdown');
-          await message.reply(secondPart, parse_mode: 'Markdown');
+          await message.reply(firstPart, parseMode: 'Markdown');
+          await message.reply(secondPart, parseMode: 'Markdown');
       } else {
-          message.reply(response, parse_mode: 'Markdown');
+          message.reply(response, parseMode: 'Markdown');
       }
     } else {
       message.reply('Désolé mon reuf, la recette "$title" est introuvable dans la db.');
