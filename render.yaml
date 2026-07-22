@@ -1,0 +1,16 @@
+services:
+  - type: worker
+    name: telegram-recipe-bot
+    runtime: docker
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_TOKEN
+        fromService:
+          name: telegram-recipe-bot
+          type: envVar
+          key: TELEGRAM_BOT_TOKEN
+    disk:
+      name: recipes-data
+      mountPath: /app/data
+      sizeGB: 1
