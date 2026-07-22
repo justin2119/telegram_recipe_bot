@@ -22,15 +22,17 @@ void main() async {
 
   // /start
   teledart.onCommand('start').listen((message) {
+    teledart.sendChatAction(message.chat.id, 'typing');
     message.reply('Bienvenue sur le Recipe Bot, c\'est carré ! 👨‍🍳\n\n'
         'Les bails dispos :\n'
         '/addrecipe <titre> | <ingrédients> | <instructions> — Pour push une nouvelle recette\n'
-        '/recipe <titre> — Pour voir une recette spécifique\n'
+        '/recipe <titre> — Pour check une recette spécifique\n'
         '/listrecipes — Pour voir tout le catalogue');
   });
 
   // /addrecipe <title> | <ingredients> | <instructions>
   teledart.onCommand('addrecipe').listen((message) async {
+    teledart.sendChatAction(message.chat.id, 'typing');
     final text = message.text?.replaceFirst('/addrecipe', '').trim() ?? '';
     final parts = text.split('|').map((e) => e.trim()).toList();
 
@@ -51,6 +53,7 @@ void main() async {
 
   // /recipe <title>
   teledart.onCommand('recipe').listen((message) async {
+    teledart.sendChatAction(message.chat.id, 'typing');
     final title = message.text?.replaceFirst('/recipe', '').trim() ?? '';
     if (title.isEmpty) {
       message.reply('Il me faut un titre mon reuf. Usage : /recipe <titre>');
@@ -62,7 +65,7 @@ void main() async {
       message.reply('🍳 *${recipe.title}*\n\n'
           '🛒 *Le matos (Ingrédients) :*\n${recipe.ingredients}\n\n'
           '📖 *Le process (Instructions) :*\n${recipe.instructions}',
-          parseMode: 'Markdown');
+          parse_mode: 'Markdown');
     } else {
       message.reply('Désolé mon reuf, la recette "$title" est introuvable dans la db.');
     }
@@ -70,6 +73,7 @@ void main() async {
 
   // /listrecipes
   teledart.onCommand('listrecipes').listen((message) async {
+    teledart.sendChatAction(message.chat.id, 'typing');
     final recipes = await repository.getAllRecipes();
     if (recipes.isEmpty) {
       message.reply('Le catalogue est vide pour l\'instant, y\'a rien à build.');
