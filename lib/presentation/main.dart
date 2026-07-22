@@ -10,7 +10,7 @@ void main() async {
   final String botToken = env['TELEGRAM_BOT_TOKEN'] ?? '';
 
   if (botToken.isEmpty) {
-    print('Error: TELEGRAM_BOT_TOKEN not found in .env file');
+    print('Erreur : TELEGRAM_BOT_TOKEN manquant dans le .env mon reuf');
     exit(1);
   }
 
@@ -22,11 +22,11 @@ void main() async {
 
   // /start
   teledart.onCommand('start').listen((message) {
-    message.reply('Welcome to the Culinary Recipe Bot!\n\n'
-        'Commands:\n'
-        '/addrecipe <title> | <ingredients> | <instructions>\n'
-        '/recipe <title>\n'
-        '/listrecipes');
+    message.reply('Bienvenue sur le Recipe Bot, c\'est carré ! 👨‍🍳\n\n'
+        'Les bails dispos :\n'
+        '/addrecipe <titre> | <ingrédients> | <instructions> — Pour push une nouvelle recette\n'
+        '/recipe <titre> — Pour check une recette spécifique\n'
+        '/listrecipes — Pour voir tout le catalogue');
   });
 
   // /addrecipe <title> | <ingredients> | <instructions>
@@ -35,7 +35,7 @@ void main() async {
     final parts = text.split('|').map((e) => e.trim()).toList();
 
     if (parts.length < 3) {
-      message.reply('Usage: /addrecipe Title | Ingredients | Instructions');
+      message.reply('Mauvais format mon reuf. Utilise : /addrecipe Titre | Ingrédients | Instructions');
       return;
     }
 
@@ -46,25 +46,25 @@ void main() async {
     );
 
     await repository.addRecipe(recipe);
-    message.reply('Recipe "${recipe.title}" added successfully!');
+    message.reply('La recette "${recipe.title}" a été déployée en prod, c\'est propre ! ✅');
   });
 
   // /recipe <title>
   teledart.onCommand('recipe').listen((message) async {
     final title = message.text?.replaceFirst('/recipe', '').trim() ?? '';
     if (title.isEmpty) {
-      message.reply('Usage: /recipe <title>');
+      message.reply('Il me faut un titre mon reuf. Usage : /recipe <titre>');
       return;
     }
 
     final recipe = await repository.getRecipeByTitle(title);
     if (recipe != null) {
       message.reply('🍳 *${recipe.title}*\n\n'
-          '🛒 *Ingredients:*\n${recipe.ingredients}\n\n'
-          '📖 *Instructions:*\n${recipe.instructions}',
+          '🛒 *Le matos (Ingrédients) :*\n${recipe.ingredients}\n\n'
+          '📖 *Le process (Instructions) :*\n${recipe.instructions}',
           parseMode: 'Markdown');
     } else {
-      message.reply('Recipe "$title" not found.');
+      message.reply('Désolé mon reuf, la recette "$title" est introuvable dans la db.');
     }
   });
 
@@ -72,13 +72,13 @@ void main() async {
   teledart.onCommand('listrecipes').listen((message) async {
     final recipes = await repository.getAllRecipes();
     if (recipes.isEmpty) {
-      message.reply('No recipes found yet.');
+      message.reply('Le catalogue est vide pour l\'instant, y\'a rien à build.');
       return;
     }
 
     final list = recipes.map((r) => '• ${r.title}').join('\n');
-    message.reply('Your Recipes:\n$list');
+    message.reply('Toutes les recettes dispo mon reuf :\n$list\n\nC\'est carré !');
   });
 
-  print('Recipe Bot is running...');
+  print('Le Recipe Bot est on-line, prêt à charbonner...');
 }
