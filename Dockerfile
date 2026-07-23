@@ -1,28 +1,39 @@
-# Utilise une image Dart officielle
+# Stage 1: Build the Dart application
 FROM dart:stable AS build
 
-# Crée le dossier de l'app
+# Set the working directory
 WORKDIR /app
 
-# Copie les fichiers de deps
-COPY pubspec.* .
+# Copy dependency files and fetch packages
+COPY pubspec.yaml ./
 RUN dart pub get
 
-# Copie tout le code
+# Copy the rest of the source code
 COPY . .
 
-# Compile l'exécutable pour que ça bombarde
+# Ensure dependencies are up to date and compile the native executable
+RUN dart pub get --offline
 RUN dart compile exe lib/presentation/main.dart -o recipe_bot
 
-# Image finale ultra légère
+# Stage 2: Create a minimal runtime image
 FROM debian:bookworm-slim
+
+# Install necessary libraries for the Dart runtime (e.g., SSL certificates)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Copie l'exécutable depuis le build
+# Copy the compiled binary from the build stage
 COPY --from=build /app/recipe_bot /app/recipe_bot
-# Copie la DB initiale et le .env
+
+# Copy the required data files
+# Note: recipes.json is needed for the initial database
 COPY recipes.json /app/recipes.json
 
-# Lance le bouzin
+# Expose the port used for Hugging Face / Fly.io health checks
+EXPOSE 7860
+
+# Run the application
 CMD ["/app/recipe_bot"]
