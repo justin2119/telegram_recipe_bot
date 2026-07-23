@@ -1,0 +1,17 @@
+name: telegram-recipe-bot
+services:
+  - name: bot
+    type: worker
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - port: 7860
+        protocol: http
+    env:
+      - key: TELEGRAM_BOT_TOKEN
+        value: YOUR_TELEGRAM_BOT_TOKEN_HERE
+      - key: PORT
+        value: "7860"
+    instance_type: nano
+    regions:
+      - fra
